@@ -2,7 +2,7 @@
 from ctransformers import AutoModelForCausalLM
 
 # 1️⃣ Modelin path'i
-model_path = "/Users/zeyneppinarsoy/ollama_models/mistral-7b-v0.1.Q4_0.gguf"
+model_path = "/y/x/z/mistral-7b-"
 
 # 2️⃣ Modeli yükle
 print("Model yükleniyor…")
