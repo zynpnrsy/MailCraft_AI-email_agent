@@ -10,16 +10,12 @@ session_data = {"sender": "", "subject": ""}
 def extract_metadata(email_text):
     import re
 
-    # -----------------------------
     # ORDER NUMBER EXTRACTION
-    # -----------------------------
     order_regex = r"(?:#\s*|order\s*(?:id|number|no)?\s*[:\-]?\s*)([A-Z0-9\-]+)"
     order_match = re.search(order_regex, email_text, re.IGNORECASE)
     order_no = order_match.group(1) if order_match else "Unknown_Order_No"
 
-    # -----------------------------
     # USERNAME EXTRACTION (LABELED)
-    # -----------------------------
     user_label_regex = r"(?:username|user|customer)[\s:]*([A-Za-z\s]+)"
     user_match = re.search(user_label_regex, email_text, re.IGNORECASE)
 
@@ -27,9 +23,7 @@ def extract_metadata(email_text):
         username = user_match.group(1).strip()
 
     else:
-        # -----------------------------
         # SIGNATURE FALLBACK
-        # -----------------------------
         lines = [line.strip() for line in email_text.split("\n") if line.strip()]
 
         if lines:
@@ -66,14 +60,11 @@ def fetch_and_analyze(email_addr, app_pass):
     session_data["sender"] = sender
     session_data["subject"] = subject
 
-    # -------------------------
     # REGEX METADATA EXTRACTION
-    # -------------------------
+    
     metadata = extract_metadata(body)
 
-    # -------------------------
     # AGENT PIPELINE
-    # -------------------------
     reader_result = reader_agent(body)
 
     try:
