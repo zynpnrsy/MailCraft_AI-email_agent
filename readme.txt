@@ -1,4 +1,4 @@
-
+LOKAL VERSIYON
 kodu lokalde çalıştırmak için:
 projenin olduğu klasörde öncelikle venv'i aktifleştiriyoruz. 
 venv'i aktifleştirmek için komut: 
